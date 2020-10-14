@@ -11,7 +11,7 @@ else:
 # DEBUG = False
 
 SECRET_KEY = os.environ['SECRET_KEY']
-ALLOWED_HOSTS = ['inniventes-employee.herokuapp.com']
+ALLOWED_HOSTS = ['innoventes-employee.herokuapp.com']
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 DEBUG_PROPAGATE_EXCEPTIONS = True
 

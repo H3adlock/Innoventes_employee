@@ -1,1 +1,1 @@
-web: gunicorn inniventes_employee.wsgi
+web: gunicorn innoventes-employee.wsgi

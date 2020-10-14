@@ -10,13 +10,13 @@ def main():
         """if .env file exists and ENV=dev django dev settings will be targeted"""
         env = config('ENV')
         if env == 'dev':
-            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inniventes_employee.settings.dev')
+            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'innoventes-employee.settings.dev')
         elif env == 'prod':
-            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inniventes_employee.settings.prod')
+            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'innoventes-employee.settings.prod')
         elif env == 'staging':
-            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inniventes_employee.settings.staging')
+            os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'innoventes-employee.settings.staging')
     except Exception:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'inniventes_employee.settings.prod')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'innoventes-employee.settings.prod')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

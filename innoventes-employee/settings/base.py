@@ -30,7 +30,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-ROOT_URLCONF = 'inniventes_employee.urls'
+ROOT_URLCONF = 'innoventes-employee.urls'
 
 TEMPLATES = [
     {
@@ -48,7 +48,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'inniventes_employee.wsgi.application'
+WSGI_APPLICATION = 'innoventes-employee.wsgi.application'
 
 # Password validation
 
