@@ -26,9 +26,9 @@ class Address(models.Model):
     address_choices = [('Present address', 'Present address'), ('Permanent address', 'Permanent address'),
                        ('Office address', 'Office address')]
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    address_type = models.CharField(max_length= 50, choices=address_choices)
+    address_type = models.CharField(max_length=50, choices=address_choices)
     address_line_1 = models.CharField(max_length=500, null=False, blank=False)
-    address_line_1 = models.CharField(max_length=500, null=True, blank=True)
+    address_line_2 = models.CharField(max_length=500, null=True, blank=True)
     city = models.CharField(max_length=100, null=False, blank=False)
     pin = models.IntegerField(null=True, blank=True)
     country = models.CharField(max_length=100, null=True, blank=True)
