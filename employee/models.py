@@ -5,7 +5,6 @@ class Employee(models.Model):
     """
     Employee model : model for Employees
     """
-    id = models.IntegerField(primary_key=True, null=False, editable=False, unique=True)
     first_name = models.CharField(max_length=100, null=False, blank=False)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -16,16 +15,20 @@ class Employee(models.Model):
         verbose_name_plural = "Employees"
 
     def __str__(self):
-        return self.first_name + ' ' +self.last_name
+        return self.first_name + ' ' + self.last_name
+
+    def __unicode__(self):
+        return self.first_name + ' ' + self.last_name
 
 
 class Address(models.Model):
     """
     Address model : Table for Employee Addresses
     """
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     address_choices = [('Present address', 'Present address'), ('Permanent address', 'Permanent address'),
                        ('Office address', 'Office address')]
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+
     address_type = models.CharField(max_length=50, choices=address_choices)
     address_line_1 = models.CharField(max_length=500, null=False, blank=False)
     address_line_2 = models.CharField(max_length=500, null=True, blank=True)
