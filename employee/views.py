@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Employee, Address
-from .serializers import AddressSerializer, EmployeeSerializer, EmployeeWithAddressSerializer
+from .serializers import AddressSerializer, EmployeeSerializer, EmployeeWithAddressSerializer, \
+    EmployeeOnlyWithAllAddressesSerializer
 from .permissions import IsAdminOrReadOnly
 
 
@@ -50,3 +51,15 @@ class EmployeeListView(APIView):
 class EmployeeDetailsView(generics.RetrieveAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeWithAddressSerializer
+
+
+class EmployeeAddressEditView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeOnlyWithAllAddressesSerializer
+    permission_classes = (IsAdminOrReadOnly,)
+
+
+class EmployeeAddressCreateView(generics.CreateAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeOnlyWithAllAddressesSerializer
+    permission_classes = (IsAdminOrReadOnly,)

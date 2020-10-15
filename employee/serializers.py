@@ -26,3 +26,10 @@ class EmployeeSerializer(serializers.ModelSerializer):
         model = Employee
         fields = ('id', 'first_name', 'last_name', 'birth_date', 'designation')
 
+
+class EmployeeOnlyWithAllAddressesSerializer(serializers.ModelSerializer):
+    addresses = AddressSerializer(source='address_set', many=True)
+
+    class Meta:
+        model = Employee
+        fields = ('id', 'addresses')
