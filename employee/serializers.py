@@ -21,15 +21,16 @@ class EmployeeSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'birth_date', 'designation', 'address_employee')
 
     def create(self, validated_data):
-        addresses_data = validated_data.pop('address_employee')
+        print(validated_data)
+        addresses_data = validated_data.pop('address_set')
         employee = Employee.objects.create(**validated_data)
         for addresses_data in addresses_data:
             Address.objects.create(employee=employee, **addresses_data)
         return employee
 
     def update(self, instance, validated_data):
-        addresses_data = validated_data.pop('address_employee')
-        addresses = (instance.address_employee).all()
+        addresses_data = validated_data.pop('address_set')
+        addresses = (instance.address_set).all()
         addresses = list(addresses)
         instance.first_name = validated_data.get('first_name', instance.first_name)
         instance.last_name = validated_data.get('last_name', instance.last_name)
