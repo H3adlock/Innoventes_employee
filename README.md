@@ -35,8 +35,9 @@ ENV=dev
 deployed in Heroku
 https://innoventes-employee.herokuapp.com/api/employees/
 
-# Postman Documentation
-------------
+# Postman Documentation with Examples
+find all api references in the below link
+## https://documenter.getpostman.com/view/13017083/TVRq25a6
 
 # API request examples
 APIs for Generic or Anonymous user 
