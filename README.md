@@ -23,7 +23,6 @@ source venv\Scripts\activate
 pip install -r reuqirements.txt
 ./manage.py migrate
 ./manage.py runserver
-./manage.py load_dataset
 ```
 ## .env file for Environment variables in Dev setup
 ```
