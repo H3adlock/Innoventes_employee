@@ -7,13 +7,13 @@ from .permissions import IsAdminOrReadOnly
 class EmployeeListView(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    # permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = (IsAdminOrReadOnly,)
 
 
 class EmployeeView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
-    # permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = (IsAdminOrReadOnly,)
 
 
 class AddressListView(generics.ListCreateAPIView):
